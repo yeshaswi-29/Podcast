@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from "react";
+import styled, { ThemeProvider } from "styled-components";
+import {lightTheme, darkTheme} from ".utils/Theme"
+
+const container = styled.dev`
+background : ${({theme})=> theme.bg};
+width: 100vh;
+height: 100vh;
+`;
 
 function App() {
+// ________________________________For Theme___________________________________
+  //hooks
+
+  const [darkMode, setDarkMode] = useState(true);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={darkTheme}>
+      <container>Podcast</container>
+    </ThemeProvider>
   );
 }
 
